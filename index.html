@@ -157,11 +157,18 @@ footer a{color:#fff}
 .formcard textarea{min-height:170px}
 .alt{margin-top:30px;color:var(--muted);font-size:16px}
 .alt a{color:var(--plum)}
+.cred{background:#c6f2e3;padding:90px 0}
+.cred h2{color:var(--plum);margin:14px 0 40px}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.credcard{background:#effcf6;border-radius:22px;padding:36px;display:flex;flex-direction:column;align-items:flex-start}
+.credcard h3{color:var(--plum);font-size:30px}
+.credcard .hu{font-style:italic;color:var(--muted);margin-bottom:14px}
+.credcard p{color:var(--muted);font-size:16px;margin-bottom:24px;flex:1}
 @media(max-width:900px){
   nav{display:none;position:absolute;top:88px;left:0;right:0;background:var(--mint);flex-direction:column;gap:0;padding:12px 28px 24px;border-bottom:1px solid var(--line)}
   nav.open{display:flex}nav a{padding:14px 0}
   .burger{display:block}.bar>.btn{display:none}
-  .cards,.intro,.grid3,.prices,.contact,.split,.sound ul,.big,.formcard form{grid-template-columns:1fr}.formcard{padding:26px}.split{gap:40px;min-height:0}.price{margin-top:14px}
+  .cards,.intro,.grid3,.prices,.contact,.split,.sound ul,.big,.formcard form{grid-template-columns:1fr}.formcard{padding:26px}.split{gap:40px;min-height:0}.creds{grid-template-columns:1fr}.price{margin-top:14px}
   .intro{gap:40px}.contact{gap:40px}.price.feat{transform:none}
   .hero::before{background:linear-gradient(180deg,var(--mint) 35%,rgba(243,252,248,.7))}
   section{padding:64px 0}.card .img{height:300px}
@@ -339,6 +346,22 @@ footer a{color:#fff}
       </div>
     </div>
   </section>
+    <section class="cred"><div class="wrap">
+    <p class="eyebrow">Qualifications &amp; membership</p>
+    <h2>Trained, accredited and <em>verifiable</em></h2>
+    <div class="creds">
+      <div class="credcard">
+        <h3>ICF-accredited systemic coach</h3>
+        <p>My coaching qualification comes from a programme accredited by the International Coaching Federation (ICF), with a systemic approach to coaching.</p>
+      </div>
+      <div class="credcard">
+        <h3>Member of CoachOK Szakmai Szövetsége</h3>
+        <p class="hu">CoachOK Professional Association</p>
+        <p>I am a member of CoachOK, the Hungarian professional association of coaches. You can check my public profile on their website at any time.</p>
+        <a class="btn" href="https://coachok.hu/nora-judit-sueto/" target="_blank" rel="noopener">View my CoachOK profile</a>
+      </div>
+    </div>
+  </div></section>
 </div>
 
 <!-- ============ CONTACT ============ -->
