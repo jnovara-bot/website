@@ -186,6 +186,7 @@ footer a{color:#fff}
       <a href="#individuals">For individuals</a>
       <a href="#companies">For companies</a>
       <a href="#about">About</a>
+      <a href="#test">Career test</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="btn sm" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book a call</a>
@@ -364,7 +365,424 @@ footer a{color:#fff}
     </div>
   </div></section>
 </div>
+  
+<!-- ============ TEST ============ -->
+<div class="page" id="test">
+  <section style="padding:70px 0"><div class="wrap">
+    <!-- START: Career Market Fit & Burnout Diagnostic Embed -->
+<div id="cmf-burnout-app-root">
+  <style>
+    /* Scoped container styles matching site theme */
+    #cmf-burnout-app-root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #2D2D2D;
+      background-color: #F9F9F7;
+      padding: 40px 20px;
+      border-radius: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    #cmf-burnout-app-root h1, #cmf-burnout-app-root h2, #cmf-burnout-app-root h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #5E1949;
+    }
+    #cmf-burnout-app-root .cmf-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    #cmf-burnout-app-root .cmf-tag {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      color: #5E1949;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    #cmf-burnout-app-root .cmf-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #E5ECE7;
+      border-radius: 3px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    #cmf-burnout-app-root .cmf-progress-fill {
+      height: 100%;
+      background: #5E1949;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    #cmf-burnout-app-root .cmf-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid #EAEAEA;
+    }
+    #cmf-burnout-app-root .cmf-statement {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #333;
+      line-height: 1.5;
+    }
+    #cmf-burnout-app-root .cmf-scale {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    #cmf-burnout-app-root .cmf-scale-btn {
+      flex: 1;
+      padding: 12px 0;
+      border: 1px solid #D5E3D8;
+      background: #F9F9F7;
+      color: #5E1949;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+    }
+    #cmf-burnout-app-root .cmf-scale-btn:hover {
+      background: #D5E3D8;
+    }
+    #cmf-burnout-app-root .cmf-scale-btn.selected {
+      background: #5E1949;
+      color: #FFFFFF;
+      border-color: #5E1949;
+    }
+    #cmf-burnout-app-root .cmf-scale-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #777;
+    }
+    #cmf-burnout-app-root .cmf-nav-btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    #cmf-burnout-app-root .cmf-btn-secondary {
+      background: transparent;
+      border: 1px solid #5E1949;
+      color: #5E1949;
+      padding: 10px 24px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #cmf-burnout-app-root .cmf-btn-primary {
+      background: #5E1949;
+      border: 1px solid #5E1949;
+      color: #FFFFFF;
+      padding: 10px 24px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #cmf-burnout-app-root .cmf-btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #cmf-burnout-app-root .cmf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    #cmf-burnout-app-root .cmf-pillar-box {
+      background: #F9F9F7;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #E2E8E4;
+    }
+    #cmf-burnout-app-root .cmf-pillar-score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #5E1949;
+      margin-top: 5px;
+    }
+    #cmf-burnout-app-root .cmf-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    #cmf-burnout-app-root .badge-attention { background: #FADBD8; color: #78281F; }
+    #cmf-burnout-app-root .badge-developing { background: #FCF3CF; color: #7D6608; }
+    #cmf-burnout-app-root .badge-strong { background: #D5E3D8; color: #1E4620; }
+    #cmf-burnout-app-root .cmf-cta-box {
+      background: #5E1949;
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    #cmf-burnout-app-root .cmf-cta-box h3 { color: white; margin-bottom: 10px; }
+    #cmf-burnout-app-root .cmf-cta-btn {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #5E1949;
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    @media (max-width: 600px) {
+      #cmf-burnout-app-root .cmf-scale-btn { padding: 10px 0; font-size: 0.9rem; }
+    }
+  </style>
 
+  <div id="cmf-quiz-view">
+    <div class="cmf-header">
+      <div class="cmf-tag" id="cmf-pillar-tag">Direction</div>
+      <h2 style="margin: 5px 0 15px 0;">Career Market Fit & Burnout Assessment</h2>
+      <div class="cmf-progress-bar"><div class="cmf-progress-fill" id="cmf-progress"></div></div>
+    </div>
+
+    <div class="cmf-card">
+      <div style="font-size: 0.85rem; color: #666; margin-bottom: 10px;" id="cmf-step-num">Statement 1 of 20</div>
+      <div class="cmf-statement" id="cmf-statement-text">Loading question...</div>
+      
+      <div class="cmf-scale">
+        <button class="cmf-scale-btn" onclick="cmfSelectScore(1)">1</button>
+        <button class="cmf-scale-btn" onclick="cmfSelectScore(2)">2</button>
+        <button class="cmf-scale-btn" onclick="cmfSelectScore(3)">3</button>
+        <button class="cmf-scale-btn" onclick="cmfSelectScore(4)">4</button>
+        <button class="cmf-scale-btn" onclick="cmfSelectScore(5)">5</button>
+      </div>
+      <div class="cmf-scale-labels">
+        <span>Not at all true</span>
+        <span>Completely true</span>
+      </div>
+    </div>
+
+    <div class="cmf-nav-btns">
+      <button class="cmf-btn-secondary" id="cmf-prev-btn" onclick="cmfPrevStep()" style="visibility: hidden;">Previous</button>
+      <button class="cmf-btn-primary" id="cmf-next-btn" onclick="cmfNextStep()" disabled>Next</button>
+    </div>
+  </div>
+
+  <div id="cmf-results-view" style="display: none;">
+    <div class="cmf-header">
+      <div class="cmf-tag">Your Assessment Profile</div>
+      <h2>Career Market Fit & Burnout Results</h2>
+    </div>
+
+    <div class="cmf-card">
+      <p style="margin-top: 0;">Here is how your career scores across all four pillars (max 25 points per pillar):</p>
+      
+      <div class="cmf-grid">
+        <div class="cmf-pillar-box">
+          <div style="font-weight: bold; font-size: 0.9rem;">Direction</div>
+          <div class="cmf-pillar-score" id="cmf-score-direction">0/25</div>
+          <div class="cmf-badge" id="cmf-badge-direction">-</div>
+        </div>
+        <div class="cmf-pillar-box">
+          <div style="font-weight: bold; font-size: 0.9rem;">Value</div>
+          <div class="cmf-pillar-score" id="cmf-score-value">0/25</div>
+          <div class="cmf-badge" id="cmf-badge-value">-</div>
+        </div>
+        <div class="cmf-pillar-box">
+          <div style="font-weight: bold; font-size: 0.9rem;">Market</div>
+          <div class="cmf-pillar-score" id="cmf-score-market">0/25</div>
+          <div class="cmf-badge" id="cmf-badge-market">-</div>
+        </div>
+        <div class="cmf-pillar-box">
+          <div style="font-weight: bold; font-size: 0.9rem;">Sustainability</div>
+          <div class="cmf-pillar-score" id="cmf-score-sustainability">0/25</div>
+          <div class="cmf-badge" id="cmf-badge-sustainability">-</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cmf-card">
+      <h3 style="margin-top: 0;">Primary Bottleneck: <span id="cmf-weakest-title" style="color: #5E1949;"></span></h3>
+      <p id="cmf-weakest-desc" style="line-height: 1.6;"></p>
+      
+      <h4 style="color: #5E1949; margin-top: 20px;">Your Recommended First Move</h4>
+      <p id="cmf-weakest-move" style="line-height: 1.6; background: #F9F9F7; padding: 15px; border-left: 4px solid #5E1949; border-radius: 4px;"></p>
+      
+      <div id="cmf-sustainability-warning" style="display: none; margin-top: 20px; padding: 15px; background: #FADBD8; border-radius: 8px; color: #78281F;">
+        <strong>Burnout Warning & Advisory:</strong> Your Sustainability score indicates high physical/emotional depletion or detachment. Evidence-based burnout research (JD-R model & BAT) suggests addressing energy restoration before making major career jumps.
+      </div>
+    </div>
+
+    <div class="cmf-cta-box">
+      <h3>Ready to turn your result into an actionable plan?</h3>
+      <p style="margin-bottom: 0;">Book a complimentary strategy call to review your 4 scores and map out your next move.</p>
+      <a href="#contact" class="cmf-cta-btn">Book a call</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const statements = [
+        // Direction
+        { pillar: 'Direction', text: "I can describe in one sentence what I want my next role or chapter to look like." },
+        { pillar: 'Direction', text: "My goals are ones I chose, not ones I inherited from other people's expectations." },
+        { pillar: 'Direction', text: "I know what I'm not willing to trade away, whether that's time, location, or values." },
+        { pillar: 'Direction', text: "When I picture my career in three years, I feel pulled toward it, not just relieved to leave where I am." },
+        { pillar: 'Direction', text: "I could turn down an impressive opportunity if it wasn't right for me." },
+        // Value
+        { pillar: 'Value', text: "I can name the two or three things I do better than most people I work with." },
+        { pillar: 'Value', text: "I can point to specific results I've created, not just tasks I've done." },
+        { pillar: 'Value', text: "I can explain what I do in a way someone outside my field would understand." },
+        { pillar: 'Value', text: "The people I work with would describe my strengths the way I would." },
+        { pillar: 'Value', text: "My résumé and LinkedIn profile lead with outcomes, not responsibilities." },
+        // Market
+        { pillar: 'Market', text: "I can name specific companies or clients who need what I offer." },
+        { pillar: 'Market', text: "The skills I use most are in growing demand in my field." },
+        { pillar: 'Market', text: "I keep up with how my industry and the roles in it are changing." },
+        { pillar: 'Market', text: "I have relationships with people in the places I want to go next." },
+        { pillar: 'Market', text: "When I apply or put myself forward, I get meaningful responses." },
+        // Sustainability (Enhanced BAT-12 Hybrid)
+        { pillar: 'Sustainability', text: "I wake up with sufficient physical and mental energy to face my workday." },
+        { pillar: 'Sustainability', text: "I remain engaged and connected with my work without feeling cynical or emotionally distant." },
+        { pillar: 'Sustainability', text: "I could keep up my current workload and pace for the next few years without burning out." },
+        { pillar: 'Sustainability', text: "I set healthy boundaries around my time and psychological energy, and I keep them." },
+        { pillar: 'Sustainability', text: "I am able to fully detach and recover from work during evenings and weekends." }
+      ];
+
+      let currentIndex = 0;
+      const responses = new Array(statements.length).fill(null);
+
+      window.cmfSelectScore = function(val) {
+        responses[currentIndex] = val;
+        const btns = document.querySelectorAll('#cmf-burnout-app-root .cmf-scale-btn');
+        btns.forEach((btn, idx) => {
+          if (idx + 1 === val) btn.classList.add('selected');
+          else btn.classList.remove('selected');
+        });
+        document.getElementById('cmf-next-btn').disabled = false;
+      };
+
+      window.cmfNextStep = function() {
+        if (responses[currentIndex] === null) return;
+        if (currentIndex < statements.length - 1) {
+          currentIndex++;
+          renderQuestion();
+        } else {
+          calculateAndRenderResults();
+        }
+      };
+
+      window.cmfPrevStep = function() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderQuestion();
+        }
+      };
+
+      function renderQuestion() {
+        const item = statements[currentIndex];
+        document.getElementById('cmf-pillar-tag').innerText = item.pillar;
+        document.getElementById('cmf-step-num').innerText = `Statement ${currentIndex + 1} of ${statements.length}`;
+        document.getElementById('cmf-statement-text').innerText = item.text;
+        
+        const progressPct = ((currentIndex + 1) / statements.length) * 100;
+        document.getElementById('cmf-progress').style.width = progressPct + '%';
+
+        const btns = document.querySelectorAll('#cmf-burnout-app-root .cmf-scale-btn');
+        btns.forEach((btn, idx) => {
+          if (responses[currentIndex] === idx + 1) btn.classList.add('selected');
+          else btn.classList.remove('selected');
+        });
+
+        document.getElementById('cmf-prev-btn').style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+        document.getElementById('cmf-next-btn').disabled = responses[currentIndex] === null;
+        document.getElementById('cmf-next-btn').innerText = (currentIndex === statements.length - 1) ? 'See Results' : 'Next';
+      }
+
+      function getBadge(score) {
+        if (score <= 11) return { text: 'Needs Attention', class: 'badge-attention' };
+        if (score <= 18) return { text: 'Developing', class: 'badge-developing' };
+        return { text: 'Strong', class: 'badge-strong' };
+      }
+
+      function calculateAndRenderResults() {
+        const scores = { Direction: 0, Value: 0, Market: 0, Sustainability: 0 };
+        statements.forEach((item, idx) => {
+          scores[item.pillar] += responses[idx];
+        });
+
+        const pillars = ['Direction', 'Value', 'Market', 'Sustainability'];
+        pillars.forEach(p => {
+          const s = scores[p];
+          const badge = getBadge(s);
+          const elScore = document.getElementById('cmf-score-' + p.toLowerCase());
+          const elBadge = document.getElementById('cmf-badge-' + p.toLowerCase());
+          if (elScore) elScore.innerText = `${s}/25`;
+          if (elBadge) {
+            elBadge.innerText = badge.text;
+            elBadge.className = `cmf-badge ${badge.class}`;
+          }
+        });
+
+        // Determine weakest pillar
+        let lowestPillar = 'Direction';
+        let lowestScore = scores['Direction'];
+        pillars.forEach(p => {
+          if (scores[p] < lowestScore) {
+            lowestScore = scores[p];
+            lowestPillar = p;
+          }
+        });
+
+        const details = {
+          Direction: {
+            title: "LOW DIRECTION — Busy but Aimless",
+            desc: "You're moving, but toward goals shaped by other people's expectations, or toward no clear target at all.",
+            move: "Write down three moments you felt most engaged at work and three that drained you. Look for what each set has in common, then write one sentence describing your next chapter."
+          },
+          Value: {
+            title: "LOW VALUE — Overlooked Impact",
+            desc: "Your impact is real but hard for others to see, and easy for you to undersell.",
+            move: "List five key results you've created with measurable outcomes. Ask three colleagues what they come to you for, and compare their answers with your own."
+          },
+          Market: {
+            title: "LOW MARKET — Unheard Strengths",
+            desc: "Your strengths may be solid, but they are aimed at the wrong places or not yet visible to the right decisions-makers.",
+            move: "Read ten job descriptions in the direction you want, highlight repeating keywords, and set up two informal chats with people currently doing that work."
+          },
+          Sustainability: {
+            title: "LOW SUSTAINABILITY — Burnout Risk / Depleted Energy",
+            desc: "The role or path may look right on paper, but its cost in exhaustion, chronic stress, or mental detachment is unsustainable.",
+            move: "Track your week and mark tasks as energizing vs. draining. Identify your single biggest structural stressor and put a strict boundary around it or delegate it immediately."
+          }
+        };
+
+        const resultInfo = details[lowestPillar];
+        document.getElementById('cmf-weakest-title').innerText = resultInfo.title;
+        document.getElementById('cmf-weakest-desc').innerText = resultInfo.desc;
+        document.getElementById('cmf-weakest-move').innerText = resultInfo.move;
+
+        if (scores.Sustainability <= 11) {
+          document.getElementById('cmf-sustainability-warning').style.display = 'block';
+        } else {
+          document.getElementById('cmf-sustainability-warning').style.display = 'none';
+        }
+
+        document.getElementById('cmf-quiz-view').style.display = 'none';
+        document.getElementById('cmf-results-view').style.display = 'block';
+      }
+
+      // Initialize
+      renderQuestion();
+    })();
+  </script>
+</div>
+<!-- END: Career Market Fit & Burnout Diagnostic Embed -->
+     </div></section>
+</div>
+  
 <!-- ============ CONTACT ============ -->
 <div class="page" id="contact">
   <div class="wrap pk" style="padding:90px 28px 100px">
