@@ -164,11 +164,24 @@ footer a{color:#fff}
 .credcard h3{color:var(--plum);font-size:30px}
 .credcard .hu{font-style:italic;color:var(--muted);margin-bottom:14px}
 .credcard p{color:var(--muted);font-size:16px;margin-bottom:24px;flex:1}
+.prices.two{grid-template-columns:repeat(2,1fr);margin-top:30px}
+.prices.three{margin-top:30px}
+.pgroup{text-align:left;margin:76px 0 0}
+.pgroup:first-of-type{margin-top:48px}
+.pgroup h3{font-size:34px;color:var(--plum);margin-bottom:4px}
+.pgroup p{color:var(--muted);font-size:16px}
+.tag{display:inline-block;background:#c6f2e3;color:var(--plum);font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;margin-right:6px}
+.price.feat .tag{background:var(--lilac)}
+.price.wide{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;background:#effcf6;margin-top:30px;padding:44px}
+.price.wide>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
+.price.wide ul{margin:0}
+.price.wide .badge{left:44px}
+  
 @media(max-width:900px){
   nav{display:none;position:absolute;top:88px;left:0;right:0;background:var(--mint);flex-direction:column;gap:0;padding:12px 28px 24px;border-bottom:1px solid var(--line)}
   nav.open{display:flex}nav a{padding:14px 0}
   .burger{display:block}.bar>.btn{display:none}
-  .cards,.intro,.grid3,.prices,.contact,.split,.sound ul,.big,.formcard form{grid-template-columns:1fr}.formcard{padding:26px}.split{gap:40px;min-height:0}.creds{grid-template-columns:1fr}.price{margin-top:14px}
+  .cards,.intro,.grid3,.prices,.contact,.split,.sound ul,.big,.formcard form{grid-template-columns:1fr}.formcard{padding:26px}.split{gap:40px;min-height:0}.prices.two,.price.wide{grid-template-columns:1fr}.price.wide{gap:30px;padding:30px}.creds{grid-template-columns:1fr}.price{margin-top:14px}
   .intro{gap:40px}.contact{gap:40px}.price.feat{transform:none}
   .hero::before{background:linear-gradient(180deg,var(--mint) 35%,rgba(243,252,248,.7))}
   section{padding:64px 0}.card .img{height:300px}
@@ -270,29 +283,52 @@ footer a{color:#fff}
     </ul>
   </div></div>
 
-  <section class="pk"><div class="wrap">
+<section class="pk"><div class="wrap">
     <p class="eyebrow">Packages &amp; prices</p>
     <h2>Choose your starting point</h2>
-    <p class="lead" style="margin:0 auto">All sessions are one-to-one, online and confidential.</p>
-    <!-- TODO: check the details of each package and adjust to what you really offer -->
-    <div class="prices">
+    <p class="lead" style="margin:0 auto">Everything is one-to-one, online and confidential.</p>
+
+    <div class="pgroup"><h3>Short &amp; focused</h3><p>From a quick fix to a three-session sprint.</p></div>
+    <div class="prices three">
+      <div class="price"><h3>Quick CV Review</h3><div class="amt">€45</div><span>one-off review + short 25-min call</span>
+        <p class="d">A fast, focused upgrade for your CV when that is all you need.</p>
+        <ul><li>Detailed, line-by-line written feedback on your current CV</li><li>Formatting, structure and impact optimization tailored to ATS (Applicant Tracking Systems)</li><li>Actionable tips to make your achievements stand out immediately</li><li>Short 25-minute call to go through the feedback</li></ul>
+        <a class="btn ghost" href="#contact">Request a review</a></div>
       <div class="price"><h3>Clarity Session</h3><div class="amt">€60</div><span>single 60-min session</span>
         <p class="d">A focused conversation when you need an outside perspective on your career or work situation.</p>
-        <ul><li>One 60-minute online session</li><li>An honest look at where you are and what is not working</li><li>Clear priorities and concrete next steps</li><li>Short written summary afterwards</li></ul>
-        <a class="btn ghost" href="https://calendly.com/YOUR-LINK" target="_blank" rel="noopener">Book a session</a>
-        <p class="for">Ideal as a second opinion before a big decision.</p></div>
-      <div class="price"><h3>Career Positioning Sprint</h3><div class="amt">€165</div><span>3 sessions</span>
-        <p class="d">Clarify your direction, sharpen how you present yourself, and build a first foundation for interviews.</p>
-        <ul><li>Three 60-minute sessions</li><li>Strengths, values and direction</li><li>CV and LinkedIn positioning</li><li>Your story and answers to key interview questions</li><li>A practical job search plan</li></ul>
-        <a class="btn ghost" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book the sprint</a>
-        <p class="for">Ideal if you know you want a change but not yet how to present it.</p></div>
-      <div class="price feat"><span class="badge">5 + 1 free</span><h3>Career Transition Partnership</h3><div class="amt">€300</div><span>6 sessions — pay for 5</span>
-        <p class="d">Comprehensive, iterative support through a career transition or job search — practise, get feedback, refine and apply as you go.</p>
-        <ul><li>Six 60-minute sessions, pay for five</li><li>Everything in the Positioning Sprint</li><li>Mock interviews with detailed feedback</li><li>Application and employer strategy</li><li>Offer evaluation and negotiation</li></ul>
-        <a class="btn" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Start the partnership</a>
-        <p class="for">Ideal if you want a partner from first idea to signed contract.</p></div>
+        <ul><li>An honest look at where you are and what is not working</li><li>Clear priorities and concrete next steps</li><li>Short written summary afterwards</li></ul>
+        <a class="btn ghost" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book a session</a></div>
+      <div class="price"><span class="badge">Save €18</span><h3>Career Positioning Sprint</h3><div class="amt">€162</div><span>3 sessions · €54 per session</span>
+        <p class="d">Clarify your direction and sharpen how you present yourself professionally.</p>
+        <ul><li>Complete CV &amp; LinkedIn overhaul and positioning</li><li>Exploring your strengths and values</li><li>Building your narrative</li><li><span class="tag">Bonus</span> Weekly in-between check-in support (email, message or voice note)</li></ul>
+        <a class="btn ghost" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book the sprint</a></div>
     </div>
-    <p class="note">Not sure which fits? Book a call and we'll work it out together.</p>
+
+    <div class="pgroup"><h3>Full programmes</h3><p>Deeper support over 6 to 10 sessions, including burnout recovery.</p></div>
+    <div class="prices three">
+      <div class="price"><span class="badge">5 + 1 free</span><h3>Career Reset &amp; Burnout Recovery</h3><div class="amt">€300</div><span>6 × 60-min sessions — pay for 5</span>
+        <p class="d">For professionals experiencing chronic work stress, exhaustion or burnout: regain energy, set healthy boundaries and build a sustainable career strategy. I combine coaching with practical NLP techniques to help you release stress patterns and shift limiting beliefs.</p>
+        <ul>
+          <li><strong>Burnout and stress assessment:</strong> your triggers, energy drainers and capacity limits, without judgment</li>
+          <li><strong>Workplace boundaries:</strong> practical scripts and strategies to say no and set clear workload limits</li>
+          <li><strong>Energy audit and recovery plan:</strong> a personalized routine to restore mental clarity and confidence</li>
+          <li><strong>Sustainable career redesign:</strong> your values, non-negotiables and ideal working conditions</li>
+          <li><strong>Healthy transition planning:</strong> stay and adjust, pivot internally or plan an exit, at a pace that adds no extra stress</li>
+          <li><span class="tag">Bonus</span> <strong>In-between voice/text support:</strong> weekly low-pressure check-ins for stressful situations</li>
+        </ul>
+        <a class="btn ghost" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book a call</a>
+        <p class="for">Spread over 6 to 12 weeks. Best if you feel overwhelmed, drained or stuck in a toxic work environment and need to rebuild energy and boundaries before your next move.</p>
+        <p class="note" style="margin-top:12px">Coaching is not a substitute for medical or psychological treatment. If you are unwell, please speak to your doctor.</p></div>
+      <div class="price feat"><span class="badge">5 + 1 free</span><h3>Career Transition Partnership</h3><div class="amt">€300</div><span>6 sessions — pay for 5</span>
+        <p class="d">Comprehensive, iterative support through a career transition or job search: practice, get feedback, refine and apply as you go.</p>
+        <ul><li>Everything in the Positioning Sprint, plus "Your Story" crafting</li><li>In-depth interview preparation and an interview prep PDF</li><li>Mock interviews with detailed feedback</li><li>Application and employer strategy</li><li><span class="tag">Bonus</span> Weekly in-between check-in support (email, message or voice note)</li></ul>
+        <a class="btn" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Start the partnership</a></div>
+      <div class="price"><span class="badge">8 + 2 free</span><h3>VIP Career Acceleration</h3><div class="amt">€480</div><span>10 sessions — pay for 8 · high-touch access</span>
+        <p class="d">Everything in the Career Transition Partnership, expanded for deeper transformation.</p>
+        <ul><li>Active networking strategy: tailored networking messages, cold-outreach templates and referral strategies</li><li>Mock interviews and real-time prep: customized prep sprints right before second- or final-round interviews</li><li>Mindset and confidence coaching: overcoming imposter syndrome, pivots into new industries, salary negotiation role-play</li><li>Offer evaluation and negotiation</li><li><span class="tag">Bonus</span> Priority weekly check-in support and voice-note coaching between sessions</li></ul>
+        <a class="btn ghost" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book a call</a></div>
+    </div>
+    <p class="note" style="margin-top:36px">Not sure which fits? Book a call and we'll work it out together.</p>
   </div></section>
 
   <section class="plum-band"><div class="wrap">
