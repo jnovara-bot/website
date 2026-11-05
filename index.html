@@ -176,12 +176,26 @@ footer a{color:#fff}
 .price.wide>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
 .price.wide ul{margin:0}
 .price.wide .badge{left:44px}
+
+.why{background:#c6f2e3;padding:90px 0}
+.why h2{color:var(--plum);margin:14px 0 40px}
+.whygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.whygrid div{background:#effcf6;border-radius:22px;padding:34px}
+.whygrid h3{color:var(--plum);font-size:28px}
+.whygrid p{color:var(--muted);font-size:16px}
+.how{padding:96px 0}
+.how h2{margin:14px 0 14px}
+.steps{list-style:none;padding:0;margin-top:44px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;counter-reset:s}
+.steps li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 24px}
+.steps li::before{content:counter(s);display:block;font-family:var(--serif);font-size:48px;line-height:1;color:var(--plum-b);margin-bottom:14px}
+.steps strong{display:block;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.steps span{color:var(--muted);font-size:15px}
   
 @media(max-width:900px){
   nav{display:none;position:absolute;top:88px;left:0;right:0;background:var(--mint);flex-direction:column;gap:0;padding:12px 28px 24px;border-bottom:1px solid var(--line)}
   nav.open{display:flex}nav a{padding:14px 0}
   .burger{display:block}.bar>.btn{display:none}
-  .cards,.intro,.grid3,.prices,.contact,.split,.sound ul,.big,.formcard form{grid-template-columns:1fr}.formcard{padding:26px}.split{gap:40px;min-height:0}.prices.two,.price.wide{grid-template-columns:1fr}.price.wide{gap:30px;padding:30px}.creds{grid-template-columns:1fr}.price{margin-top:14px}
+  .cards,.intro,.grid3,.prices,.contact,.split,.sound ul,.big,.formcard form{grid-template-columns:1fr}.formcard{padding:26px}.split{gap:40px;min-height:0}.whygrid,.steps{grid-template-columns:1fr}.prices.two,.price.wide{grid-template-columns:1fr}.price.wide{gap:30px;padding:30px}.creds{grid-template-columns:1fr}.price{margin-top:14px}
   .intro{gap:40px}.contact{gap:40px}.price.feat{transform:none}
   .hero::before{background:linear-gradient(180deg,var(--mint) 35%,rgba(243,252,248,.7))}
   section{padding:64px 0}.card .img{height:300px}
@@ -359,7 +373,28 @@ footer a{color:#fff}
       <div><h3>Also available</h3><p>Internal coaching and individual career consulting for the people inside your organisation.</p></div>
     </div>
   </div></section>
-
+    <section class="why"><div class="wrap">
+    <p class="eyebrow">Why invest in outplacement?</p>
+    <h2>Care for your people, <em>protect your company</em></h2>
+    <div class="whygrid">
+      <div><h3>Protect your employer brand</h3><p>Demonstrate responsibility and care during difficult organisational transitions.</p></div>
+      <div><h3>Support remaining employees</h3><p>Help maintain trust, engagement and confidence during periods of uncertainty.</p></div>
+      <div><h3>Enable successful transitions</h3><p>Give departing employees practical tools, direction and confidence for their next career move.</p></div>
+      <div><h3>Provide structured support</h3><p>Offer a tailored programme rather than leaving employees to navigate the transition alone.</p></div>
+    </div>
+  </div></section>
+    <section class="how"><div class="wrap">
+    <p class="eyebrow">How we work together</p>
+    <h2>A clear process, <em>not just a collection of sessions</em></h2>
+    <ol class="steps">
+      <li><strong>Initial consultation and needs assessment</strong><span>We talk through your situation, your people and your goals.</span></li>
+      <li><strong>Tailored programme design</strong><span>A programme built around your company and the people affected.</span></li>
+      <li><strong>Group workshops and practical training</strong><span>Practical sessions, in person or online.</span></li>
+      <li><strong>Individual career consultations (optional)</strong><span>One-to-one support for those who need more.</span></li>
+      <li><strong>Follow-up and feedback</strong><span>We review what worked and what your people still need.</span></li>
+    </ol>
+  </div></section>
+  
   <section class="plum-band"><div class="wrap">
     <h2>Every company is <em>different</em></h2>
     <p class="lead" style="margin-bottom:30px">So every offer is too. Tell me about your team and what is changing, and I'll come back with a proposal built around your needs.</p>
