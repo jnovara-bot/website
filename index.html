@@ -233,7 +233,8 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
 .terms ul{margin:12px 0 0 20px}
 .price a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:1100px){nav{gap:22px}}
-.cd{display:flex;width:max-content;max-width:100%;gap:10px;margin-top:14px}
+.cd.huf{display:block;font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-spacing:0;margin-top:8px;opacity:.8}
+.cd{display:flex;width:max-content
 .cd div{background:rgba(255,255,255,.12);border:1px solid rgba(233,201,227,.35);border-radius:16px;padding:12px 8px;min-width:74px;text-align:center}
 .cd b{display:block;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
 .cd span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lilac)}
@@ -992,7 +993,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
           <h3 class="l-hu" style="margin-top:10px">A LinkedIn-profil, ami helyetted dolgozik</h3>
           <p class="l-en">Build a profile that works for you. How to be found, trusted and chosen.</p>
           <p class="l-hu">Hogyan találjanak meg, bízzanak benned, és válasszanak téged.</p>
-          <div class="bprice">&euro;45</div>
+          <div class="bprice">&euro;45<small class="huf">15 990 Ft</small></div>
         </div>
       </article>
       <article class="book">
@@ -1054,15 +1055,15 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
     <h2 style="margin-top:14px">Pick what fits you</h2>
     <div class="prices two">
       <div class="price"><span class="badge">Christmas price</span><p class="eyebrow" style="margin-top:6px">Option 1 &middot; Your choice</p>
-        <div class="amt">&euro;29</div>
+        <div class="amt">&euro;29<small class="huf">9 990 Ft</small></div>
         <ul><li>One e-book of your choice</li><li><span class="tag">Bonus</span> Complimentary 25-minute consultation</li></ul>
         <button class="btn ghost" onclick="pickOffer('one')">Choose this offer</button></div>
       <div class="price feat"><span class="badge">Best value</span><p class="eyebrow" style="margin-top:6px;color:var(--lilac)">Option 2 &middot; The complete bundle</p>
-        <div class="amt">&euro;49</div>
+        <div class="amt">&euro;49<small class="huf">16 990 Ft</small></div>
         <ul><li>Both e-books together</li><li><span class="tag">Bonus</span> Complimentary 25-minute consultation</li></ul>
         <button class="btn" onclick="pickOffer('both')">Choose this offer</button></div>
     </div>
-    <p class="note">Offer valid from <span data-start-s></span> until <span data-end></span>. Subject to the offer terms below. Payment is possible in euros or Hungarian forints (HUF).</p>
+    <p class="note">Offer valid from <span data-start-s></span> until <span data-end></span>. Subject to the offer terms below. You can pay in euros or in Hungarian forints (HUF); the forint price is shown under the euro price.</p>
   </div></section>
 
   <section class="how" data-st="soon live"><div class="wrap">
@@ -1086,7 +1087,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
         <input type="hidden" name="_subject" value="New e-book order request">
         <input name="name" placeholder="Your name" aria-label="Your name" required autocomplete="name">
         <input type="email" name="email" placeholder="Email address" aria-label="Email address" required autocomplete="email">
-        <select name="offer" id="offerSel" aria-label="Offer" onchange="syncOffer()"><option value="One e-book (&euro;29)">Option 1: one e-book, &euro;29</option><option value="Both e-books, complete bundle (&euro;49)">Option 2: both e-books, &euro;49</option></select>
+        <select name="offer" id="offerSel" aria-label="Offer" onchange="syncOffer()"><option value="One e-book (&euro;29 / 9 990 Ft)">Option 1: one e-book, &euro;29 / 9 990 Ft</option><option value="Both e-books, complete bundle (&euro;49 / 16 990 Ft)">Option 2: both e-books, &euro;49 / 16 990 Ft</option></select>
         <select name="book" id="bookSel" aria-label="Which e-book"><option>LinkedIn, but make it human</option><option>Interview Playbook</option></select>
         <select name="language" class="full" aria-label="Language of the e-book"><option>Language: English</option><option>Language: Hungarian (Magyar)</option></select>
         <textarea class="full" name="message" placeholder="Anything you'd like me to know? (optional)" aria-label="Message (optional)"></textarea>
@@ -1101,9 +1102,9 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
       <!-- TODO: check these terms (VAT, validity of the consultation, withdrawal wording) before you publish -->
       <ul>
         <li>The offer is valid until <span data-end></span> (23:59, Budapest time).</li>
-        <li>Prices are in euros. VAT is included. You can also pay in Hungarian forints (HUF): just tell me in your order request, and I will send the amount converted at the current exchange rate.</li>
+        <li>VAT is included. You can pay in euros or in Hungarian forints (HUF). Tell me your choice in your order request and I will send the payment details. The forint prices are fixed for the length of the offer.</li>
         <li>E-books are PDF files, emailed to you after your payment is confirmed. Each order includes one language version.</li>
-        <li>The 25-minute consultation is an introductory career conversation. Your booking link is sent after purchase and can be used within 1 month.</li>
+        <li>The 25-minute consultation is an introductory career conversation. Your booking link is sent after purchase and can be used within 30 days.</li>
         <li>The offer cannot be combined with other discounts and is not transferable.</li>
       </ul>
     </details>
