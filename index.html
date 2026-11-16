@@ -1026,6 +1026,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
       <p class="xlimit" id="xlimit">Limited offer</p>
       <p class="cdlabel" id="cdlabel"></p>
       <div class="cd" id="cd" role="timer" aria-label="Countdown"><div><b id="cd-d">--</b><span>days</span></div><div><b id="cd-h">--</b><span>hours</span></div><div><b id="cd-m">--</b><span>min</span></div><div><b id="cd-s">--</b><span>sec</span></div></div>
+      <p style="margin-top:26px" data-st="soon live" hidden><a class="btn" href="#christmas-career-guides" onclick="event.preventDefault();document.getElementById('offers').scrollIntoView({behavior:'smooth',block:'start'})" style="background:#c6f2e3;color:var(--plum);border-color:#c6f2e3">Choose your offer &darr;</a></p>
       <div class="lang dark" role="group" aria-label="E-book language" style="margin-top:26px">
         <button data-l="en" aria-pressed="true" onclick="setBL('en')">English</button>
         <button data-l="hu" aria-pressed="false" onclick="setBL('hu')">Magyar</button>
@@ -1050,9 +1051,10 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
     </div>
   </div></section>
 
-  <section class="cred" data-st="soon live"><div class="wrap pk">
+  <section class="cred" id="offers" data-st="soon live" style="scroll-margin-top:70px"><div class="wrap pk">
     <p class="eyebrow">Choose your offer</p>
     <h2 style="margin-top:14px">Pick what fits you</h2>
+    <p class="note" style="margin:0 0 6px">Written by Nora Judit Suto, ICF-certified coach. <a href="#about" style="color:var(--plum);text-decoration:underline;text-underline-offset:3px">About me</a></p>
     <div class="prices two">
       <div class="price"><span class="badge">Christmas price</span><p class="eyebrow" style="margin-top:6px">Option 1 &middot; Your choice</p>
         <div class="amt">&euro;29<small class="huf">9 990 Ft</small></div>
