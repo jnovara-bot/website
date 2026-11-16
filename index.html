@@ -233,7 +233,26 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
 .terms ul{margin:12px 0 0 20px}
 .price a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:1100px){nav{gap:22px}}
+.cd{display:flex;width:max-content;max-width:100%;gap:10px;margin-top:14px}
+.cd div{background:rgba(255,255,255,.12);border:1px solid rgba(233,201,227,.35);border-radius:16px;padding:12px 8px;min-width:74px;text-align:center}
+.cd b{display:block;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.cd span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lilac)}
+.cdlabel{margin-top:26px;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-weight:500}
+.xban-sec:not([hidden])+section{padding-top:48px}
+.xban{background:#c6f2e3;border-radius:28px;padding:30px 36px;display:flex;align-items:center;gap:30px;justify-content:space-between;flex-wrap:wrap}
+.xban .xtext{flex:1;min-width:240px}
+.xban .eyebrow{margin-bottom:6px}
+.xban h2{font-size:clamp(28px,3.2vw,40px);color:var(--plum);margin:0 0 6px}
+.xban p{color:var(--muted);margin:0}
+.xban .minis{display:flex;gap:12px}
+.xban .mini{width:64px;border-radius:5px;box-shadow:0 12px 22px -10px rgba(42,24,39,.5)}
+.xban .mini+.mini{transform:rotate(4deg) translateY(6px)}
+.xpill{display:inline-flex;align-items:center;gap:10px;margin-top:30px;background:#c6f2e3;color:var(--plum);border-radius:999px;padding:9px 20px;font-size:15px;font-weight:500;text-decoration:none}
+.xpill:hover{background:#b3ead8}
+@media(max-width:600px){.xban{padding:24px 22px}}
+@media(max-width:900px){.cd{gap:8px}.cd div{min-width:0;flex:1;padding:10px 4px}.cd b{font-size:30px}}
 @media(max-width:900px){
+
   nav{display:none;position:absolute;top:88px;left:0;right:0;background:var(--mint);flex-direction:column;gap:0;padding:12px 28px 24px;border-bottom:1px solid var(--line)}
   nav.open{display:flex}nav a{padding:14px 0}
   .burger{display:block}.bar>.btn{display:none}
@@ -275,9 +294,18 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
         <a class="btn" href="#individuals">I'm an individual</a>
         <a class="btn ghost" href="#companies">I'm a company</a>
       </div>
+      <a class="xpill" data-st="soon live" hidden href="#christmas-career-guides" id="xpill"></a>
     </div>
-  </div>
-
+    </div>
+ 
+  <section class="xban-sec" data-st="soon live" hidden style="padding:56px 0 0"><div class="wrap">
+    <div class="xban">
+      <div class="minis"><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(1) img.l-en" alt=""><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(2) img.l-en" alt=""></div>
+      <div class="xtext"><p class="eyebrow" id="xb-eyebrow">Coming soon</p><h2>Christmas e-book offer</h2><p id="xb-text"></p></div>
+      <a class="btn" href="#christmas-career-guides">See the offer</a>
+    </div>
+  </div></section>
+ 
   <section>
     <div class="wrap cards">
       <article class="card">
@@ -982,7 +1010,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
         </div>
       </article>
     </div>
-    <p style="margin-top:36px;text-align:center"><a class="btn" href="#christmas-career-guides">Explore the limited Christmas offer &rarr;</a></p>
+    <p style="margin-top:36px;text-align:center"><a class="btn" id="xlink" href="#christmas-career-guides">Explore the limited Christmas offer &rarr;</a></p>
   </div></section>
 </div>
 
@@ -994,7 +1022,9 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
       <h1>Invest in your <em>next career move.</em></h1>
       <span class="pill">Special Christmas offer from 20 November</span>
       <p class="lead" style="margin-top:22px">Practical career guides to help you stand out, communicate your value and approach your next opportunity with confidence.</p>
-      <p class="xlimit">Limited offer &middot; Until 19 December 2026</p>
+      <p class="xlimit" id="xlimit">Limited offer</p>
+      <p class="cdlabel" id="cdlabel"></p>
+      <div class="cd" id="cd" role="timer" aria-label="Countdown"><div><b id="cd-d">--</b><span>days</span></div><div><b id="cd-h">--</b><span>hours</span></div><div><b id="cd-m">--</b><span>min</span></div><div><b id="cd-s">--</b><span>sec</span></div></div>
       <div class="lang dark" role="group" aria-label="E-book language" style="margin-top:26px">
         <button data-l="en" aria-pressed="true" onclick="setBL('en')">English</button>
         <button data-l="hu" aria-pressed="false" onclick="setBL('hu')">Magyar</button>
@@ -1019,7 +1049,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
     </div>
   </div></section>
 
-  <section class="cred live"><div class="wrap pk">
+  <section class="cred" data-st="soon live"><div class="wrap pk">
     <p class="eyebrow">Choose your offer</p>
     <h2 style="margin-top:14px">Pick what fits you</h2>
     <div class="prices two">
@@ -1032,10 +1062,10 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
         <ul><li>Both e-books together</li><li><span class="tag">Bonus</span> Complimentary 25-minute consultation</li></ul>
         <button class="btn" onclick="pickOffer('both')">Choose this offer</button></div>
     </div>
-    <p class="note">Offer valid from 20 November until 19 December 2026. Subject to the offer terms below.</p>
+    <p class="note">Offer valid from <span data-start-s></span> until <span data-end></span>. Subject to the offer terms below.</p>
   </div></section>
 
-  <section class="how live"><div class="wrap">
+  <section class="how" data-st="soon live"><div class="wrap">
     <p class="eyebrow">How it works</p>
     <h2 style="margin-top:14px">Simple, <em>personal ordering</em></h2>
     <ol class="steps">
@@ -1047,7 +1077,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
     </ol>
   </div></section>
 
-  <section class="rsec live" id="order" style="padding-top:10px"><div class="wrap pk">
+  <section class="rsec" data-st="soon live" id="order" style="padding-top:10px"><div class="wrap pk">
     <p class="eyebrow">Order request</p>
     <h2 style="margin-top:14px">Place your order</h2>
     <div class="formcard">
@@ -1070,7 +1100,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
       <summary>Offer terms</summary>
       <!-- TODO: check these terms (VAT, validity of the consultation, withdrawal wording) before you publish -->
       <ul>
-        <li>The offer is valid until 19 December 2026 (23:59, Budapest time).</li>
+        <li>The offer is valid until <span data-end></span> (23:59, Budapest time).</li>
         <li>Prices are in euros. VAT is included.</li>
         <li>E-books are PDF files, emailed to you after your payment is confirmed. Each order includes one language version.</li>
         <li>The 25-minute consultation is an introductory career conversation. Your booking link is sent after purchase and can be used within 1 month.</li>
@@ -1079,7 +1109,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
     </details>
   </div></section>
 
-  <section class="rsec ended" hidden><div class="wrap pk">
+  <section class="rsec" data-st="ended" hidden><div class="wrap pk">
     <h2>This Christmas offer has ended</h2>
     <p class="lead" style="margin:0 auto 26px">The e-books are still available at &euro;50 each. Write to me and I'll send you the details.</p>
     <a class="btn" href="mailto:juditnora.sueto@gmail.com">Email me</a>
@@ -1137,7 +1167,36 @@ function setBL(l){document.documentElement.dataset.bl=l;document.querySelectorAl
 function syncOffer(){const one=document.getElementById('offerSel').selectedIndex===0;document.getElementById('bookSel').hidden=!one}
 function pickOffer(v){document.getElementById('offerSel').selectedIndex=v==='one'?0:1;syncOffer();document.getElementById('order').scrollIntoView({behavior:'smooth',block:'start'})}
 syncOffer();
-if(Date.now()>new Date('2026-12-24T23:59:59+01:00').getTime()){document.querySelectorAll('.live').forEach(e=>e.hidden=true);document.querySelectorAll('.ended').forEach(e=>e.hidden=false)}
+/* ===== Offer dates: change ONLY these two lines for the next promotion ===== */
+const OFFER_START=new Date('2026-11-20T00:00:00+01:00');
+const OFFER_END=new Date('2026-12-19T23:59:59+01:00');
+/* ========================================================================== */
+const fmtD=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'Europe/Budapest'});
+const fmtS=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'Europe/Budapest'});
+document.querySelectorAll('[data-start]').forEach(e=>e.textContent=fmtD(OFFER_START));
+document.querySelectorAll('[data-end]').forEach(e=>e.textContent=fmtD(OFFER_END));
+document.querySelectorAll('[data-start-s]').forEach(e=>e.textContent=fmtS(OFFER_START));
+document.querySelectorAll('img[data-src-from]').forEach(i=>{const s=document.querySelector(i.dataset.srcFrom);if(s)i.src=s.src});
+function offerTick(){
+  const now=Date.now(),st=now<OFFER_START?'soon':(now<=OFFER_END?'live':'ended');
+  document.querySelectorAll('[data-st]').forEach(e=>e.hidden=!e.dataset.st.split(' ').includes(st));
+  const xe=document.getElementById('xb-eyebrow'),xt=document.getElementById('xb-text');
+  if(xe){xe.textContent=st==='live'?'Now open':'Coming soon';xt.textContent=st==='live'?'Two career e-books, one Christmas price. Until '+fmtS(OFFER_END)+'.':'Starts on '+fmtS(OFFER_START)+'. Two career e-books, one Christmas price.'}
+  const xp=document.getElementById('xpill');if(xp)xp.textContent=st==='live'?'Christmas e-book offer is open \u2192':'Coming soon: Christmas e-book offer, '+fmtS(OFFER_START)+' \u2192';
+  const cd=document.getElementById('cd'),lab=document.getElementById('cdlabel'),lim=document.getElementById('xlimit'),lk=document.getElementById('xlink');
+  if(st==='ended'){cd.hidden=true;lab.hidden=true;lim.textContent='This offer has ended';if(lk)lk.textContent='See the e-books \u2192';return}
+  cd.hidden=false;lab.hidden=false;
+  const target=st==='soon'?OFFER_START:OFFER_END;
+  lab.textContent=st==='soon'?'Offer starts in':'Offer ends in';
+  lim.textContent=st==='soon'?'Starts '+fmtD(OFFER_START):'Limited offer \u00b7 Until '+fmtD(OFFER_END);
+  if(lk)lk.textContent=st==='soon'?'See the Christmas offer (starts '+fmtS(OFFER_START)+') \u2192':'Explore the limited Christmas offer \u2192';
+  let t=Math.max(0,Math.floor((target-now)/1000));
+  const d=Math.floor(t/86400);t%=86400;const h=Math.floor(t/3600);t%=3600;const m=Math.floor(t/60);
+  const p=n=>String(n).padStart(2,'0');
+  document.getElementById('cd-d').textContent=d;document.getElementById('cd-h').textContent=p(h);document.getElementById('cd-m').textContent=p(m);document.getElementById('cd-s').textContent=p(t%60);
+}
+offerTick();setInterval(offerTick,1000);
+
 document.getElementById('orderForm').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,b=f.querySelector('button[type=submit]');b.disabled=true;document.getElementById('orderErr').hidden=true;
   try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(!r.ok)throw 0;f.hidden=true;document.getElementById('orderOk').hidden=false}
   catch(_){b.disabled=false;document.getElementById('orderErr').hidden=false}});
