@@ -233,7 +233,12 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
 .terms ul{margin:12px 0 0 20px}
 .price a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:1100px){nav{gap:22px}}
-.huf{display:block;font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-spacing:0;margin-top:8px;opacity:.8}
+.tline{margin:18px 0 28px;max-width:560px;font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.3;color:var(--plum)}
+.tline:not([hidden]){animation:tfade .8s ease both}
+@keyframes tfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tmail{display:inline-block;margin-top:10px;font-size:15px;color:var(--plum);text-decoration:underline;text-underline-offset:4px}
+.huf{display:block;
+font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-spacing:0;margin-top:8px;opacity:.8}
 .cd{display:flex;width:max-content;max-width:100%;gap:10px;margin-top:14px}
 .cd div{background:rgba(255,255,255,.12);border:1px solid rgba(233,201,227,.35);border-radius:16px;padding:12px 8px;min-width:74px;text-align:center}
 .cd b{display:block;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
@@ -291,6 +296,8 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
       <p class="eyebrow">Career strategy · Burnout coaching · Outplacement</p>
       <h1><span class="l">Build your best life.</span> <em class="l">It's closer than you think.</em></h1>
       <p class="lead">I help people find direction, energy and the right next role - and help companies guide their teams through change with care and structured support.</p>
+      <p class="tline" id="tline" hidden></p>
+      <a class="tmail" id="tmail" hidden href="#">Email this page to myself</a>
       <div class="row">
         <a class="btn" href="#individuals">I'm an individual</a>
         <a class="btn ghost" href="#companies">I'm a company</a>
@@ -1199,6 +1206,47 @@ function offerTick(){
   document.getElementById('cd-d').textContent=d;document.getElementById('cd-h').textContent=p(h);document.getElementById('cd-m').textContent=p(m);document.getElementById('cd-s').textContent=p(t%60);
 }
 offerTick();setInterval(offerTick,1000);
+ 
+/* ===== Personal touches: ONE line per visit, chosen from the visitor's own clock, device and the link they came from. Nothing is stored or sent anywhere. ===== */
+/* Ad hooks: add ?utm_content=burnout to the end of a link you share (before the #), and the headline line below replaces the default. Edit the texts freely. */
+const TOUCH_HOOKS={
+  burnout:"Tired in a way that sleep doesn\u2019t fix?",
+  cv:"Your CV is good. Is it getting the replies it deserves?",
+  interview:"Interviews feel like exams? They don\u2019t have to."
+};
+function touchLine(){
+  const el=document.getElementById('tline'),ml=document.getElementById('tmail');if(!el)return;
+  const d=new Date(),h=d.getHours(),mo=d.getMonth(),dt=d.getDate(),dow=d.getDay(),wk=dow>=1&&dow<=5;
+  const day=d.toLocaleDateString('en-GB',{weekday:'long'}),clock=((h%12)||12)+':'+String(d.getMinutes()).padStart(2,'0');
+  const q=new URLSearchParams(location.search),src=(q.get('utm_source')||'').toLowerCase(),hook=(q.get('utm_content')||q.get('utm_campaign')||'').toLowerCase();
+  let ref='';try{ref=document.referrer?new URL(document.referrer).hostname.toLowerCase():''}catch(e){}
+  const phone=window.matchMedia('(max-width:700px) and (pointer:coarse)').matches;
+  let t='',mail=false;
+  if(TOUCH_HOOKS[hook])t=TOUCH_HOOKS[hook];
+  else if(src==='linkedin'||/(^|\.)linkedin\.com$|(^|\.)lnkd\.in$/.test(ref))t="Coming from LinkedIn? Scrolling past everyone\u2019s announcements can sting. You\u2019re in the right place.";
+  else if(src==='jobboard'||/indeed\.|profession\.hu|jobline\.hu|cvonline\.hu|glassdoor\./.test(ref))t="Back from the job listings? Applying for jobs isn\u2019t the same as finding the right one.";
+  else if(h>=23||h<5)t=phone?"Scrolling in bed? Let\u2019s give your brain something better than doom to chew on.":"It\u2019s "+clock+" on a "+day+" night. If work is on your mind at this hour, you\u2019re not alone.";
+  else if(dow===0&&h>=16)t="That Sunday-night feeling has a name. Let\u2019s talk about it.";
+  else if(mo===11&&dt>=15)t="The quiet weeks are when people finally admit what they want next year.";
+  else if(mo===0)t="New year, same job? That\u2019s the most common resolution nobody keeps alone.";
+  else if((mo===7&&dt>=25)||(mo===8&&dt<=15))t="Back from holiday, and the dread came back with you?";
+  else if(dow===5&&h>=14&&h<19)t="It\u2019s Friday afternoon. Are you counting down to the weekend, or away from next Monday?";
+  else if(dow===1&&h>=6&&h<11)t="Monday morning. How did it feel checking in for work today?";
+  else if(wk&&h>=5&&h<8)t="Up before work, thinking about work. That\u2019s worth listening to.";
+  else if(wk&&h>=12&&h<14)t="Spending your lunch break on this website instead of eating? Fair enough.";
+  else if(wk&&h>=9&&h<17&&phone){t="Reading this on your phone at work? Smart. Save it for tonight.";mail=true}
+  else t="Whatever brought you here, you\u2019re in the right place.";
+  el.textContent=t;el.hidden=false;
+  if(ml){ml.hidden=!mail;if(mail)ml.href='mailto:?subject='+encodeURIComponent('Career support to read tonight')+'&body='+encodeURIComponent(location.origin+location.pathname)}
+}
+touchLine();setInterval(touchLine,60000);
+ 
+/* Tab title while the visitor is on another tab */
+let tabSaved='';
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){tabSaved=document.title;document.title='Still here when you\u2019re ready'}
+  else if(tabSaved){document.title=tabSaved;tabSaved=''}
+});
 
 document.getElementById('orderForm').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,b=f.querySelector('button[type=submit]');b.disabled=true;document.getElementById('orderErr').hidden=true;
   try{const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(!r.ok)throw 0;f.hidden=true;document.getElementById('orderOk').hidden=false}
