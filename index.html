@@ -808,6 +808,11 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
       <p style="margin-bottom: 0;">Book a 15-minute complimentary strategy call to review your 4 scores and map out your next move.</p>
       <a href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener" class="cmf-cta-btn">Book a call</a>
     </div>
+    <div class="xban" data-st="soon live" hidden style="margin-top:26px">
+      <div class="minis"><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(1) img.l-en" alt=""><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(2) img.l-en" alt=""></div>
+      <div class="xtext"><p class="eyebrow" id="xb2-eyebrow">Coming soon</p><h3 style="color:var(--plum);margin:0 0 6px">Christmas e-book offer</h3><p id="xb2-text" style="margin:0"></p></div>
+      <a class="btn" href="#christmas-career-guides">See the offer</a>
+    </div>
     <p style="font-size:0.85rem;color:#777;margin-top:18px;text-align:center">This assessment is for reflection only and is not a medical or psychological diagnosis.</p>
     <div style="text-align:center;margin-top:16px"><button class="cmf-btn-secondary" onclick="cmfRestart()">Retake the assessment</button></div>
   </div>
@@ -1209,6 +1214,12 @@ function offerTick(){
   document.getElementById('cd-d').textContent=d;document.getElementById('cd-h').textContent=p(h);document.getElementById('cd-m').textContent=p(m);document.getElementById('cd-s').textContent=p(t%60);
 }
 offerTick();setInterval(offerTick,1000);
+  /* Offer banner under the assessment results: copies the text of the home page banner */
+function syncXb2(){
+  const a=document.getElementById('xb2-eyebrow'),b=document.getElementById('xb-eyebrow');
+  if(a&&b){a.textContent=b.textContent;document.getElementById('xb2-text').textContent=document.getElementById('xb-text').textContent}
+}
+syncXb2();setInterval(syncXb2,1000);
  
 /* ===== Personal touches: ONE line per visit, chosen from the visitor's own clock, device and the link they came from. Nothing is stored or sent anywhere. ===== */
 /* Ad hooks: add ?utm_content=burnout to the end of a link you share (before the #), and the headline line below replaces the default. Edit the texts freely. */
