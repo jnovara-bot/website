@@ -237,6 +237,7 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
 .tline:not([hidden]){animation:tfade .8s ease both}
 @keyframes tfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .tmail{display:inline-block;margin-top:10px;font-size:15px;color:var(--plum);text-decoration:underline;text-underline-offset:4px}
+.tline.dk{color:var(--lilac);margin:22px 0 0}
 .huf{display:block;
 font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-spacing:0;margin-top:8px;opacity:.8}
 .cd{display:flex;width:max-content;max-width:100%;gap:10px;margin-top:14px}
@@ -358,6 +359,7 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
       <p class="eyebrow">For individuals</p>
       <h1>Career Strategy &amp; <em>Burnout Coaching</em></h1>
       <p class="lead">For people who want more from work. Career change, interviews, and building a life that feels like yours again.</p>
+       <p class="tline" id="pline" hidden></p>
       <a class="btn" href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">Book an appointment</a>
     </div>
     <div class="photo" role="img" aria-label="A woman walking through a green arched corridor"></div>
@@ -1033,6 +1035,7 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
       <p class="xlimit" id="xlimit">Limited offer</p>
       <p class="cdlabel" id="cdlabel"></p>
       <div class="cd" id="cd" role="timer" aria-label="Countdown"><div><b id="cd-d">--</b><span>days</span></div><div><b id="cd-h">--</b><span>hours</span></div><div><b id="cd-m">--</b><span>min</span></div><div><b id="cd-s">--</b><span>sec</span></div></div>
+      <p class="tline dk" id="eline" hidden></p>
       <p style="margin-top:26px" data-st="soon live" hidden><a class="btn" href="#christmas-career-guides" onclick="event.preventDefault();document.getElementById('offers').scrollIntoView({behavior:'smooth',block:'start'})" style="background:#c6f2e3;color:var(--plum);border-color:#c6f2e3">Choose your offer &darr;</a></p>
       <div class="lang dark" role="group" aria-label="E-book language" style="margin-top:26px">
         <button data-l="en" aria-pressed="true" onclick="setBL('en')">English</button>
@@ -1240,6 +1243,36 @@ function touchLine(){
   if(ml){ml.hidden=!mail;if(mail)ml.href='mailto:?subject='+encodeURIComponent('Career support to read tonight')+'&body='+encodeURIComponent(location.origin+location.pathname)}
 }
 touchLine();setInterval(touchLine,60000);
+  /* ===== Sales lines on the offer page (#eline) and the packages page (#pline) ===== */
+function offerLine(){
+  const el=document.getElementById('eline');if(!el)return;
+  const now=Date.now(),d=new Date(),h=d.getHours(),dow=d.getDay();
+  if(now>OFFER_END){el.hidden=true;return}
+  let t;
+  if(now<OFFER_START)t='The offer opens on '+fmtS(OFFER_START)+'. You can already send your order request below.';
+  else{
+    const left=OFFER_END-now,days=Math.ceil(left/86400000);
+    if(left<=86400000)t='Less than 24 hours left. The offer ends on '+fmtS(OFFER_END)+' at 23:59 (Budapest time).';
+    else if(days<=3)t='Less than '+days+' days left. The offer ends on '+fmtS(OFFER_END)+' at 23:59 (Budapest time).';
+    else if(h>=23||h<5)t='Reading about career guides at this hour? Send your order request now, and I will reply with payment details.';
+    else if(dow===0&&h>=16)t='Sunday evening is a good time to get ready for the week. Two guides, one Christmas price.';
+    else t='Two guides, one Christmas price. The offer runs until '+fmtS(OFFER_END)+'.';
+  }
+  el.textContent=t;el.hidden=false;
+}
+function packLine(){
+  const el=document.getElementById('pline');if(!el)return;
+  const d=new Date(),h=d.getHours(),mo=d.getMonth(),dt=d.getDate(),dow=d.getDay();
+  let t;
+  if(h>=23||h<5)t='Can\u2019t switch off at this hour? A Clarity Session is one 60-minute conversation, with nothing more to commit to.';
+  else if(dow===0&&h>=16)t='That Sunday-night feeling is a good reason to talk. A Clarity Session is a single 60-minute conversation.';
+  else if(mo===11&&dt>=15)t='The quiet weeks are a good time to start. Begin next year with a plan, not just a hope.';
+  else if(mo===0)t='New year, new direction? The Career Positioning Sprint is built to clarify where you are heading and sharpen how you present yourself.';
+  else if(dow===1&&h>=6&&h<11)t='Monday morning. If this week already feels heavy, a Clarity Session is a good place to start.';
+  else t='Not sure where to start? A Clarity Session is one 60-minute conversation, with no commitment beyond that.';
+  el.textContent=t;el.hidden=false;
+}
+offerLine();packLine();setInterval(function(){offerLine();packLine()},60000);
  
 /* Tab title while the visitor is on another tab */
 let tabSaved='';
