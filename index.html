@@ -318,6 +318,14 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
 .rs-book p{color:var(--lilac);margin:6px 0 22px}
 @media(max-width:700px){#rs-dots{right:8px}#rs-compass{left:10px;bottom:10px;max-width:210px;padding:9px 12px}.rs-card{padding:30px 22px;border-radius:22px}.rs-vals{grid-template-columns:repeat(3,1fr)}.rs-val{font-size:17px;aspect-ratio:1.1/1}.rs-g{grid-template-columns:1fr}.rs-rcard{padding:26px 22px}.rs-book{padding:26px 22px}.rs-erow{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.rs-card{opacity:1;transform:none;transition:none}.rs-hint{animation:none}}
+.xslim{background:#c6f2e3;border-radius:22px;padding:14px 22px;display:flex;align-items:center;gap:18px}
+.xslim .minis{display:flex;flex:none;padding-right:6px}
+.xslim .mini{width:38px;border-radius:4px;box-shadow:0 8px 14px -8px rgba(42,24,39,.5)}
+.xslim .mini+.mini{margin-left:-8px;transform:rotate(5deg) translateY(3px)}
+.xslim p{flex:1;margin:0;color:var(--plum);font-size:16px;line-height:1.4}
+.xslim p strong{font-weight:600}
+.xslim .btn{flex:none;padding:10px 22px;font-size:15px}
+@media(max-width:700px){.xslim{flex-wrap:wrap;padding:16px}.xslim p{flex:1 1 calc(100% - 100px)}}
 .huf{display:block;
 font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-spacing:0;margin-top:8px;opacity:.8}
 .cd{display:flex;width:max-content;max-width:100%;gap:10px;margin-top:14px}
@@ -1067,6 +1075,11 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
   </div></section>
 
     <section class="rsec" style="padding-top:20px"><div class="wrap">
+    <div class="xslim" data-st="soon live" hidden style="margin-bottom:34px">
+      <div class="minis"><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(1) img.l-en" alt=""><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(2) img.l-en" alt=""></div>
+      <p><strong>Ready to put your results to work?</strong> Two practical career guides, one Christmas price. <span class="xs-when"></span></p>
+      <a class="btn" href="#christmas-career-guides">See the offer</a>
+    </div>
     <div class="tool" style="background:#fff;color:var(--ink);border:1px solid var(--line)">
       <div>
         <p class="eyebrow">Free tool &middot; 5 minutes</p>
@@ -1233,6 +1246,11 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
       <h2>Want to turn this into a real plan?</h2>
       <p>In a free 15-minute call, we&rsquo;ll look at your card together and work out what the next three months could look like. No pressure, no pitch deck.</p>
       <a class="btn" id="rs-bookBtn" href="#contact" style="background:#fff;color:var(--plum);border-color:#fff">Request a free 15-minute call</a>
+          <div class="xslim" data-st="soon live" hidden style="margin-top:22px">
+      <div class="minis"><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(1) img.l-en" alt=""><img class="mini" data-src-from="#christmas-career-guides .covers > div:nth-child(2) img.l-en" alt=""></div>
+      <p><strong>Want to keep going on your own?</strong> Two practical career guides, one Christmas price. <span class="xs-when"></span></p>
+      <a class="btn" href="#christmas-career-guides">See the offer</a>
+    </div>
     </div>
   </div></div>
 </div>
@@ -1428,6 +1446,12 @@ function syncXb2(){
   if(a&&b){a.textContent=b.textContent;document.getElementById('xb2-text').textContent=document.getElementById('xb-text').textContent}
 }
 syncXb2();setInterval(syncXb2,1000);
+  /* Slim e-book banners: fill in the offer dates */
+function syncXs(){
+  const t=Date.now()<OFFER_START?'Starts '+fmtS(OFFER_START)+'.':'Until '+fmtS(OFFER_END)+'.';
+  document.querySelectorAll('.xs-when').forEach(e=>e.textContent=t);
+}
+syncXs();setInterval(syncXs,60000);
  
 /* ===== Personal touches: ONE line per visit, chosen from the visitor's own clock, device and the link they came from. Nothing is stored or sent anywhere. ===== */
 /* Ad hooks: add ?utm_content=burnout to the end of a link you share (before the #), and the headline line below replaces the default. Edit the texts freely. */
