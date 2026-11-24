@@ -326,6 +326,35 @@ html[data-bl="en"] .l-hu,html[data-bl="hu"] .l-en{display:none!important}
 .xslim p strong{font-weight:600}
 .xslim .btn{flex:none;padding:10px 22px;font-size:15px}
 @media(max-width:700px){.xslim{flex-wrap:wrap;padding:16px}.xslim p{flex:1 1 calc(100% - 100px)}}
+/* ===== Client recommendations ===== */
+.rc-head{padding:90px 28px 20px}
+.rc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;align-items:start}
+.rc-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px 34px 28px;box-shadow:0 30px 60px -40px rgba(102,20,92,.35)}
+.rc-q{font-family:var(--serif);font-size:72px;line-height:.7;height:34px;color:var(--lilac)}
+.rc-text p{font-size:17px;color:var(--ink);margin:0 0 12px}
+.rc-who{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.rc-who b{display:block;font:500 18px var(--sans);color:var(--plum)}
+.rc-who span{display:block;font-size:15px;color:var(--muted)}
+.rc-meta{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-d);margin-top:8px;font-weight:500}
+.rc-orig{margin-top:14px;font-size:15px}
+.rc-orig summary{cursor:pointer;color:var(--plum);text-decoration:underline;text-underline-offset:4px}
+.rc-orig div{margin-top:10px;color:var(--muted);font-style:italic}
+.rc-orig p{margin:0 0 10px}
+.rc-cta{margin-top:44px;background:var(--plum);color:#f6e8f3;border-radius:28px;padding:44px;text-align:center}
+.rc-cta h2{color:#fff;margin-bottom:10px}
+.rc-cta p{color:var(--lilac);margin:0 auto 24px;max-width:520px}
+.rc-cta .btn{margin:4px 6px}
+.rc-bub{position:fixed;left:20px;bottom:20px;z-index:150;width:min(350px,calc(100vw - 40px));background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 22px 16px;box-shadow:0 24px 50px -22px rgba(42,24,39,.5);transform:translateX(-24px);opacity:0;pointer-events:none;transition:opacity .5s,transform .5s}
+.rc-bub.on{opacity:1;transform:none;pointer-events:auto}
+.rc-bli{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-d);margin-bottom:8px;font-weight:500;padding-right:26px}
+.rc-bq{font-family:var(--serif);font-size:19px;line-height:1.35;color:var(--ink);font-style:italic;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+.rc-bwho{margin-top:10px;font-size:14px;color:var(--muted)}
+.rc-bwho b{color:var(--plum);font-weight:500}
+.rc-bub a{display:inline-block;margin-top:8px;color:var(--plum);font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.rc-bx{position:absolute;top:6px;right:8px;background:none;border:0;font-size:26px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px}
+@media(max-width:800px){.rc-grid{grid-template-columns:minmax(0,1fr)}.rc-card{padding:26px 22px}.rc-cta{padding:32px 22px}}
+@media(max-width:700px){.rc-bub{left:12px;right:12px;bottom:12px;width:auto;padding:14px 18px 12px}.rc-bq{font-size:17px;-webkit-line-clamp:5}}
+@media(prefers-reduced-motion:reduce){.rc-bub{transform:none;transition:opacity .2s}}
 .huf{display:block;
 font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-spacing:0;margin-top:8px;opacity:.8}
 .cd{display:flex;width:max-content;max-width:100%;gap:10px;margin-top:14px}
@@ -1254,6 +1283,33 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
     </div>
   </div></div>
 </div>
+
+<!-- ============ CLIENT RECOMMENDATIONS ============ -->
+<div class="page" id="recommendations">
+  <div class="wrap rc-head">
+    <p class="eyebrow">Client recommendations</p>
+    <h1>What clients <em>say.</em></h1>
+    <p class="lead">These are recommendations clients wrote for me on LinkedIn. Most were written in Hungarian, so each card shows an English translation, and the original text is one click away.</p>
+    <p id="rc-li" style="margin-top:26px" hidden><a class="btn ghost" id="rc-lia" target="_blank" rel="noopener">See them on LinkedIn &rarr;</a></p>
+  </div>
+  <section style="padding-top:30px"><div class="wrap">
+    <div class="rc-grid" id="rc-grid"></div>
+    <div class="rc-cta">
+      <h2>Want to work together?</h2>
+      <p>Take a look at the packages, or get in touch and tell me where you are right now.</p>
+      <a class="btn" href="#individuals" style="background:#fff;color:var(--plum);border-color:#fff">See the packages</a>
+      <a class="btn ghost" href="#contact" style="color:#fff;border-color:#fff">Get in touch</a>
+    </div>
+  </div></section>
+</div>
+
+<div class="rc-bub" id="rc-bub" role="status" aria-live="polite">
+  <button class="rc-bx" id="rc-bx" aria-label="Close and stop these messages">&times;</button>
+  <div class="rc-bli">LinkedIn recommendation</div>
+  <p class="rc-bq" id="rc-bq"></p>
+  <div class="rc-bwho" id="rc-bwho"></div>
+  <a href="#recommendations" id="rc-ball">Read all recommendations &rarr;</a>
+</div>
   
 <!-- ============ CHRISTMAS OFFER ============ -->
 <div class="page" id="christmas-career-guides">
@@ -1376,7 +1432,7 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
         <button class="btn full" type="submit">Send message</button>
       </form>
     </div>
-    <p class="alt">Prefer email? <a href="mailto:juditnora.sueto@gmail.com">juditnora.sueto@gmail.com</a> &nbsp;·&nbsp; Individuals can also <a href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">book a call directly</a>.</p>
+    <p class="alt">Prefer email? <a href="mailto:juditnora.sueto@gmail.com">juditnora.sueto@gmail.com</a><p style="margin-top:8px"><a href="#recommendations">Client recommendations</a></p> &nbsp;·&nbsp; Individuals can also <a href="https://calendar.app.google/pMY8tYghxAE6UXuUA" target="_blank" rel="noopener">book a call directly</a>.</p>
   </div>
 </div>
 
@@ -1674,5 +1730,146 @@ $('#rs-saveImg').onclick=async()=>{
 scene();
 })();
 </script>
+<script>
+/* ===== Client recommendations =====
+   One list feeds BOTH the pop-up bubbles and the Recommendations page. Edit the texts here and both update. */
+const LINKEDIN_URL='';          // paste the link to your LinkedIn profile between the quotes to show a "See them on LinkedIn" button
+const REC_SHOW_COMPANY=false;   // true = also show employers (for example Electrolux Group). Only after the people agree.
+const RECS=[
+ {
+  "id": "krisztina",
+  "name": "Krisztina",
+  "role": "Product Development Engineer",
+  "company": "Electrolux Group",
+  "date": "November 2026",
+  "lang": "hu",
+  "tags": [
+   "interview",
+   "career"
+  ],
+  "short": "Her methods gave me tangible help in the job-search process, which was complicated and unfamiliar to me at first. By the end of our consultations, we had defined my next steps and my concrete career goals.",
+  "en": "Recently I had the chance to work with Nóra on career planning and interview preparation. Her coaching was well structured, solution-focused and professionally thorough, and her supportive, empathetic and kind personality gave me a sense of safety. Her methods gave me tangible help in the job-search process, which was complicated and unfamiliar to me at first. By the end of our consultations, we had defined my next steps and my concrete career goals. Her knowledge created real value for me. I am grateful, and I am happy to recommend her.",
+  "orig": "Az elmúlt időszakban lehetőségem volt együtt dolgozni Nórával a karriertervezés és az interjúkra való felkészülés során. Nóra tanácsadása kifejezetten jól felépített, megoldásra törekvő és szakmailag alapos volt, támogató, empatikus és kedves személyisége pedig biztonságot adott. Módszerei kézzelfogható segítséget nyújtottak az álláskeresés, számomra kezdetben bonyolult és ismeretlen menetében. A konzultációk végére sikerült meghatározni a következő lépéseimet és a konkrét karriercéljaimat. Tudása valódi értéket teremtett számomra, hálás vagyok, örömmel ajánlom Őt."
+ },
+ {
+  "id": "zsolt",
+  "name": "Zsolt",
+  "role": "Cabinet Foaming Machine Setter",
+  "company": "Electrolux Group",
+  "date": "October 2026",
+  "lang": "hu",
+  "tags": [
+   "interview",
+   "career"
+  ],
+  "short": "With her structured, practical methods she quickly pointed out the areas to develop, while staying supportive and motivating throughout. I especially appreciated her use of the STAR method, which helps me prepare far more deliberately and confidently for competency-based interviews.",
+  "en": "Nóra's support was a significant help in career planning and interview preparation. With her structured, practical methods she quickly pointed out the areas to develop, while staying supportive and motivating throughout. I especially appreciated her use of the STAR method, which helps me prepare far more deliberately and confidently for competency-based interviews and present my professional experience. Working with her created real value for me, so I gladly recommend her professional services.",
+  "orig": "Nóra támogatása jelentős segítséget nyújtott a karriertervezésben és az interjúkra való felkészülésben. Strukturált, gyakorlatias módszereivel gyorsan rámutatott a fejlesztendő területekre, miközben végig támogató és motiváló hozzáállást tanúsított. Különösen nagyra értékeltem a STAR-módszer alkalmazását, amelynek segítségével sokkal tudatosabban és magabiztosabban tudok felkészülni a kompetenciaalapú interjúkra és bemutatni a szakmai tapasztalataimat. A vele való együttműködés valódi értéket teremtett számomra, ezért jó szívvel ajánlom szakmai szolgáltatásait."
+ },
+ {
+  "id": "virag",
+  "name": "Virág",
+  "role": "Project Manager",
+  "company": "",
+  "date": "October 2026",
+  "lang": "hu",
+  "tags": [
+   "career"
+  ],
+  "short": "She created an atmosphere in which there was room not for criticism but for self-reflection and new approaches. I did not go in with concrete plans, but I left with concrete goals. I am very grateful for the guidance!",
+  "en": "Throughout the coaching she was interested yet structured, open to every question while keeping the framework. She created an atmosphere in which there was room not for criticism but for self-reflection and new approaches.\nMy first impression, that Nóra is a professionally well-prepared coach who is also fair and approachable as a person, only deepened during our conversations.\nI did not go in with concrete plans, but I left with concrete goals. I am very grateful for the guidance!",
+  "orig": "A tanácsadás során végig érdeklődő, de strukturált volt, nyitott volt minden kérdésre, miközben tartotta a kereteket. Olyan légkört teremtett, amelyben nem a kritikának, hanem önreflexiónak és új megközelítéseknek nyílt tere.\nAz első benyomásom, miszerint Nóra egy szakmailag felkészült, emberileg pedig korrekt és közvetlen tanácsadó, tovább mélyült a beszélgetések során.\nNem konkrét tervekkel mentem, de mégis konkrét célkitűzésekkel távoztam, nagyon hálás vagyok az útmutatásért!"
+ },
+ {
+  "id": "adel",
+  "name": "Adél",
+  "role": "Clarity & Self-Trust Coach",
+  "company": "",
+  "date": "September 2026",
+  "lang": "en",
+  "tags": [
+   "business",
+   "career"
+  ],
+  "short": "After every session, I was filled with motivation and energy that helped me take the necessary steps to develop strategy and execute aligned actions. I got my first-ever paying clients. The latter had felt like the most impossible milestone. Not anymore.",
+  "en": "My career coaching experience with Nora has been a foundational element in building my coaching business. Very early on in our collaboration, it became obvious that she is expertly skilled at navigating the realm of limiting beliefs that attempt to take the wheel when one is building a business. After every session, I was filled with motivation and energy that helped me take the necessary steps to develop strategy and execute aligned actions. I reached milestones such as stepping into visibility by putting my face on camera to promote my business without feeling fake, and I got my first-ever paying clients. The latter had felt like the most impossible milestone. Not anymore. I continuously move forward on my path, redefining what success means to me and creating a value-aligned coaching business. Nora's perspective and effective, laser-focused questioning techniques helped me become the person my business needs to function without sacrificing an ounce of integrity and authenticity. Her compassionate presence and unrelenting acceptance allowed me to open up because I knew I was in safe hands. Issues I felt shame about were met with understanding and kindness that helped me see myself in a new light. I cannot emphasize enough how much I recommend Nora to anyone who is building a business and would like to become the kind of person who runs a business in a sustainable and aligned manner.",
+  "orig": ""
+ },
+ {
+  "id": "agnes",
+  "name": "Ágnes",
+  "role": "Logistics specialist & virtual assistant",
+  "company": "",
+  "date": "September 2026",
+  "lang": "hu",
+  "tags": [
+   "career"
+  ],
+  "short": "A well-timed question gave much more than any advice. By the end of the coaching process I not only had more clarity about my next steps, but also more trust in my own decisions.",
+  "en": "One of the greatest values of working with Nóri in career coaching was that she showed me perspectives I would never have thought of on my own. She gave me a safe space where, through the right questions, it gradually became clearer to me which direction I want to go in.\nDuring our conversations I experienced several times that one well-timed question gave much more than any advice. She helped me notice the connections, inner motivations and obstacles I had not seen clearly before. She supported me in finding my own answers.\nBy the end of the coaching process I not only had more clarity about my next steps, but also more trust in my own decisions.\nI warmly recommend Nóri if you are stuck, torn between too many options, or simply want a clearer look at what matters to you. For me, it helped the picture finally come together among all the thoughts and uncertainty, and I could see more clearly how to move forward.",
+  "orig": "Nórival való együttműködésem a karrier coaching során egyik legnagyobb értéke az volt, hogy olyan nézőpontokat mutatott meg, amelyekre korábban magamtól nem is gondoltam volna. Olyan biztonságos teret kaptam tőle, ahol a megfelelő kérdések segítségével fokozatosan tisztábbá vált számomra, hogy merre szeretnék továbbhaladni.\nA beszélgetések során többször megtapasztaltam, hogy egy-egy jól időzített kérdés sokkal többet adott, mint bármilyen tanács. Segített észrevenni azokat az összefüggéseket, belső motivációkat és akadályokat, amelyeket addig nem láttam tisztán. Támogatott abban, hogy a saját válaszaimat találjam meg.\nA coaching folyamat végére nemcsak több tisztánlátással rendelkeztem a következő lépéseimet illetően, hanem nagyobb bizalommal is a saját döntéseim iránt.\nSzeretettel ajánlom Nórit, ha éppen elakadtál, túl sok lehetőség között őrlődsz, vagy egyszerűen szeretnél tisztábban ránézni arra, hogy mi fontos számodra. Nekem abban segített, hogy a sok gondolat és bizonytalanság között végre összeálljon a kép, és világosabban lássam, hogyan tovább."
+ }
+];
+/* bubbles: first one after 14 seconds, then one every 40 seconds, each visible for 13 seconds, each recommendation once per visit */
+const REC_FIRST=14000,REC_GAP=40000,REC_SHOW=13000;
+(function(){
+  const grid=document.getElementById('rc-grid'),bub=document.getElementById('rc-bub');
+  if(!grid||!bub)return;
+  const paras=(t)=>t.split('\n');
+  function who(r,full){return r.name+(r.role?' \u00b7 '+r.role:'')+(REC_SHOW_COMPANY&&r.company?', '+r.company:'')}
+  RECS.forEach(r=>{
+    const c=document.createElement('article');c.className='rc-card';c.id='rc-'+r.id;
+    const q=document.createElement('div');q.className='rc-q';q.textContent='\u201c';q.setAttribute('aria-hidden','true');c.appendChild(q);
+    const t=document.createElement('div');t.className='rc-text';paras(r.en).forEach(p=>{const e=document.createElement('p');e.textContent=p;t.appendChild(e)});c.appendChild(t);
+    const w=document.createElement('div');w.className='rc-who';
+    const n=document.createElement('b');n.textContent=r.name;w.appendChild(n);
+    const ro=document.createElement('span');ro.textContent=r.role+(REC_SHOW_COMPANY&&r.company?', '+r.company:'');w.appendChild(ro);
+    const m=document.createElement('div');m.className='rc-meta';m.textContent='LinkedIn recommendation \u00b7 '+r.date+(r.lang==='hu'?' \u00b7 Translated from Hungarian':'');w.appendChild(m);
+    c.appendChild(w);
+    if(r.lang==='hu'&&r.orig){
+      const d=document.createElement('details');d.className='rc-orig';
+      const s=document.createElement('summary');s.textContent='Read the original, in Hungarian';d.appendChild(s);
+      const o=document.createElement('div');o.lang='hu';paras(r.orig).forEach(p=>{const e=document.createElement('p');e.textContent=p;o.appendChild(e)});d.appendChild(o);c.appendChild(d);
+    }
+    grid.appendChild(c);
+  });
+  if(LINKEDIN_URL){document.getElementById('rc-lia').href=LINKEDIN_URL;document.getElementById('rc-li').hidden=false}
+ 
+  /* pop-up bubbles */
+  let seen=[],off=false,hideT=null,loopT=null,hover=false;
+  const pageId=()=>{const p=document.querySelector('.page.on');return p?p.id:''};
+  const quiet=()=>{const id=pageId();return id==='career-reset'||id==='recommendations'};
+  const typing=()=>{const a=document.activeElement;return a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)};
+  function hide(){bub.classList.remove('on');clearTimeout(hideT)}
+  function stopAll(){off=true;hide();clearTimeout(loopT)}
+  function pick(){
+    const id=pageId(),want=(id==='christmas-career-guides'||id==='resources')?'interview':null;
+    const left=RECS.filter(r=>!seen.includes(r.id));if(!left.length)return null;
+    const pref=want?left.filter(r=>r.tags.includes(want)):[];const pool=pref.length?pref:left;
+    return pool[Math.floor(Math.random()*pool.length)];
+  }
+  function show(r){
+    seen.push(r.id);
+    document.getElementById('rc-bq').textContent='\u201c'+r.short+'\u201d';
+    document.getElementById('rc-bwho').innerHTML='';
+    const b=document.createElement('b');b.textContent=r.name;document.getElementById('rc-bwho').append(b,r.role?' \u00b7 '+r.role:'');
+    bub.classList.add('on');
+    const wait=()=>{hideT=setTimeout(()=>{if(hover){wait();return}hide()},REC_SHOW)};wait();
+  }
+  function loop(ms){
+    loopT=setTimeout(()=>{
+      if(off)return;
+      if(document.hidden||quiet()||typing()){loop(6000);return}
+      const r=pick();if(!r)return;
+      show(r);loop(REC_GAP);
+    },ms);
+  }
+  bub.addEventListener('mouseenter',()=>hover=true);bub.addEventListener('mouseleave',()=>hover=false);
+  document.getElementById('rc-bx').onclick=stopAll;
+  document.getElementById('rc-ball').addEventListener('click',stopAll);
+  window.addEventListener('hashchange',()=>setTimeout(()=>{if(quiet())hide()},0));
+  loop(REC_FIRST);
+})();
+</script>  
 </body>
 </html>
