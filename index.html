@@ -1868,6 +1868,18 @@ const REC_FIRST=8000,REC_GAP=20000,REC_SHOW=12000;
   document.getElementById('rc-bx').onclick=stopAll;
   document.getElementById('rc-ball').addEventListener('click',stopAll);
   window.addEventListener('hashchange',()=>setTimeout(()=>{if(quiet())hide()},0));
+    /* on the packages page (For individuals) a recommendation comes back, even after it was closed or all were shown */
+  let kT=null;
+  window.addEventListener('hashchange',()=>{
+    clearTimeout(kT);
+    if(location.hash!=='#individuals')return;
+    kT=setTimeout(()=>{
+      if(pageId()!=='individuals'||document.hidden||typing())return;
+      hide();clearTimeout(loopT);off=false;
+      if(seen.length>=RECS.length)seen=[];
+      const r=pick();if(r){show(r);loop(REC_GAP)}
+    },5000);
+  });
   loop(REC_FIRST);
 })();
 </script>  
