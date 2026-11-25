@@ -1564,13 +1564,13 @@ function touchLine(){
   if(TOUCH_HOOKS[hook])t=TOUCH_HOOKS[hook];
   else if(src==='linkedin'||/(^|\.)linkedin\.com$|(^|\.)lnkd\.in$/.test(ref))t="Coming from LinkedIn? Scrolling past everyone\u2019s announcements can sting. You\u2019re in the right place.";
   else if(src==='jobboard'||/indeed\.|profession\.hu|jobline\.hu|cvonline\.hu|glassdoor\./.test(ref))t="Back from the job listings? Applying for jobs isn\u2019t the same as finding the right one.";
-  else if(h>=23||h<5)t=phone?"Scrolling in bed? Let\u2019s give your brain something better than doom to chew on.":"It\u2019s "+clock+" on a "+day+" night. If work is on your mind at this hour, you\u2019re not alone.";
+  else if(h>=21||h<5)t=phone?"Scrolling in bed? Let\u2019s give your brain something better than doom to chew on.":"It\u2019s "+clock+" on a "+day+" night. If work is on your mind at this hour, you\u2019re not alone.";
   else if(dow===0&&h>=16)t="That Sunday-night feeling has a name. Let\u2019s talk about it.";
   else if(mo===11&&dt>=15)t="The quiet weeks are when people finally admit what they want next year.";
   else if(mo===0)t="New year, same job? That\u2019s the most common resolution nobody keeps alone.";
   else if((mo===7&&dt>=25)||(mo===8&&dt<=15))t="Back from holiday, and the dread came back with you?";
   else if(dow===5&&h>=14&&h<19)t="It\u2019s Friday afternoon. Are you counting down to the weekend, or away from next Monday?";
-  else if(dow===1&&h>=6&&h<11)t="Monday morning. How did it feel checking in for work today?";
+  else if(wk&&h>=6&&h<11)t="Good morning. How did it feel checking in for work today?";
   else if(wk&&h>=5&&h<8)t="Up before work, thinking about work. That\u2019s worth listening to.";
   else if(wk&&h>=12&&h<14)t="Spending your lunch break on this website instead of eating? Fair enough. Why not make it count? Explore my career resources and take the Career test!";
   else if(wk&&h>=9&&h<17&&phone){t="Reading this on your phone at work? Smart. Save it for tonight.";mail=true}
