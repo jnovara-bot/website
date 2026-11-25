@@ -1574,7 +1574,16 @@ function touchLine(){
   else if(wk&&h>=5&&h<8)t="Up before work, thinking about work. That\u2019s worth listening to.";
   else if(wk&&h>=12&&h<14)t="Spending your lunch break on this website instead of eating? Fair enough. Why not make it count? Explore my career resources and take the Career test!";
   else if(wk&&h>=9&&h<17&&phone){t="Reading this on your phone at work? Smart. Save it for tonight.";mail=true}
-  else t="Whatever brought you here, you\u2019re in the right place.";
+  else{
+    const calm=[
+      "Whatever brought you here, you\u2019re in the right place.",
+      "Not sure what you\u2019re looking for yet? That\u2019s a perfectly good place to start.",
+      "You don\u2019t need to have it all figured out to be here.",
+      "Curious, stuck, or just browsing? All three are welcome.",
+      "A career is long. It\u2019s allowed to change direction."
+    ];
+    t=calm[Math.floor(Date.now()/60000)%calm.length];
+  }
   el.textContent=t;el.hidden=false;
   if(ml){ml.hidden=!mail;if(mail)ml.href='mailto:?subject='+encodeURIComponent('Career support to read tonight')+'&body='+encodeURIComponent(location.origin+location.pathname)}
 }
