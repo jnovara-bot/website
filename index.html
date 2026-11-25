@@ -913,7 +913,7 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
     </div>
  
     <div class="cmf-card">
-      <h3 style="margin-top: 0;"><span id="cmf-opp-label">Your biggest opportunity right now</span>: <span id="cmf-weakest-title" style="color: #5E1949;"></span></h3>
+      <h3 style="margin-top: 0;"><span id="cmf-opp-label">Your biggest gap right now</span>: <span id="cmf-weakest-title" style="color: #5E1949;"></span></h3>
       <p id="cmf-weakest-desc" style="line-height: 1.6;"></p>
       
       <h4 style="color: #5E1949; margin-top: 20px;">A good first step</h4>
@@ -1080,26 +1080,26 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
  
         const details = {
           Direction: {
-            title: "Direction, getting clearer on your next chapter",
-            desc: "Your path may still be taking shape, or be shaped partly by other people's expectations. That is very common, and very workable.",
+            title: "Direction, no clear target yet",
+            desc: "You are moving, but without a clear target, or toward goals that may not be yours. Until that is settled, extra effort mostly goes into going in circles.",
             hi: "You have a clear sense of where you are heading. The next level is testing that direction against real roles and real conversations.",
             move: "Write down three moments you felt most engaged at work and three that drained you. Look for what each set has in common, then write one sentence describing your next chapter."
           },
           Value: {
-            title: "Value, making your impact visible",
-            desc: "Your impact is real, it just may not be easy for others to see yet, and it is easy to undersell.",
+            title: "Value, impact others cannot see",
+            desc: "Your impact is real, but others cannot see it clearly, and you tend to undersell it. That costs you interviews, raises and opportunities.",
             hi: "You know what you bring. The next level is making sure your CV, LinkedIn and conversations lead with it every time.",
             move: "List five key results you've created with measurable outcomes. Ask three colleagues what they come to you for, and compare their answers with your own."
           },
           Market: {
-            title: "Market, putting your strengths in front of the right people",
-            desc: "Your strengths are solid. The next step is aiming them at the right places and the right decision-makers.",
+            title: "Market, strengths not reaching the right people",
+            desc: "Your strengths may be solid, but they are not reaching the right places or decision-makers yet, so good skills are not turning into responses.",
             hi: "You are well connected to what the market needs. The next level is turning that into more conversations with the right people.",
             move: "Read ten job descriptions in the direction you want, highlight repeating keywords, and set up two informal chats with people currently doing that work."
           },
           Sustainability: {
-            title: "Sustainability, protecting your energy",
-            desc: "The path may look right on paper, but it is costing you energy. Looking after that now makes every other step easier.",
+            title: "Sustainability, running on empty",
+            desc: "The path may look right on paper, but it is costing you more energy than you can keep giving. This needs attention before any big move.",
             hi: "Your energy is in good shape. The next level is protecting it as your workload or role changes.",
             move: "Track your week and mark tasks as energizing vs. draining. Identify your single biggest structural stressor and put a clear boundary around it, or hand it over."
           }
@@ -1107,7 +1107,7 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
  
         const resultInfo = details[lowestPillar];
         const isHigh = lowestScore >= 19;
-        document.getElementById('cmf-opp-label').innerText = isHigh ? 'One thing to sharpen next' : 'Your biggest opportunity right now';
+        document.getElementById('cmf-opp-label').innerText = isHigh ? 'One thing to work on next' : 'Your biggest gap right now';
         document.getElementById('cmf-weakest-title').innerText = resultInfo.title;
         document.getElementById('cmf-weakest-desc').innerText = isHigh ? resultInfo.hi : resultInfo.desc;
         document.getElementById('cmf-weakest-move').innerText = resultInfo.move;
