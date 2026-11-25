@@ -907,15 +907,19 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
       </div>
     </div>
 
+    <div class="cmf-card" id="cmf-strength-card">
+      <h3 style="margin-top: 0;">What is working: <span id="cmf-strength-title" style="color: #5E1949;"></span></h3>
+      <p id="cmf-strength-desc" style="line-height: 1.6; margin-bottom: 0;"></p>
+    </div>
+ 
     <div class="cmf-card">
-      <h3 style="margin-top: 0;">Primary Bottleneck: <span id="cmf-weakest-title" style="color: #5E1949;"></span></h3>
-      <p id="cmf-weakest-desc" style="line-height: 1.6;"></p>
+      <h3 style="margin-top: 0;"><span id="cmf-opp-label">Your biggest opportunity right now</span>: <span id="cmf-weakest-title" style="color: #5E1949;"></span></h3>
       
-      <h4 style="color: #5E1949; margin-top: 20px;">Your Recommended First Move</h4>
+      <h4 style="color: #5E1949; margin-top: 20px;">A good first step</h4>
       <p id="cmf-weakest-move" style="line-height: 1.6; background: #F9F9F7; padding: 15px; border-left: 4px solid #5E1949; border-radius: 4px;"></p>
       
-      <div id="cmf-sustainability-warning" style="display: none; margin-top: 20px; padding: 15px; background: #FADBD8; border-radius: 8px; color: #78281F;">
-        <strong>Burnout Warning & Advisory:</strong> Your Sustainability score indicates high physical/emotional depletion or detachment. Evidence-based burnout research (JD-R model & BAT) suggests addressing energy restoration before making major career jumps.
+      <div id="cmf-sustainability-warning" style="display: none; margin-top: 20px; padding: 15px; background: #F1E6EE; border-left: 4px solid #5E1949; border-radius: 8px; color: #3a1530; line-height: 1.6;">
+        <strong>A gentle note on your energy:</strong> Your Sustainability score suggests you may be running on low reserves. That is a signal to look after yourself, not a failing. Burnout research suggests that restoring your energy before a big career move usually leads to better decisions.
       </div>
     </div>
 
@@ -1037,42 +1041,74 @@ font-family:var(--sans,Outfit,sans-serif);font-size:18px;font-weight:400;letter-
           }
         });
 
-        // Determine weakest pillar
-        let lowestPillar = 'Direction';
-        let lowestScore = scores['Direction'];
+        // Strongest pillar, and the weakest of the remaining ones
+        let strongest = pillars[0];
+        pillars.forEach(p => { if (scores[p] > scores[strongest]) strongest = p; });
+        let lowestPillar = null;
         pillars.forEach(p => {
-          if (scores[p] < lowestScore) {
-            lowestScore = scores[p];
-            lowestPillar = p;
-          }
+          if (p !== strongest && (lowestPillar === null || scores[p] < scores[lowestPillar])) lowestPillar = p;
         });
-
+        const lowestScore = scores[lowestPillar];
+ 
+        const strengths = {
+          Direction: {
+            strong: "You have a real sense of where you are heading, and the goals are yours. That is the foundation everything else is built on.",
+            dev: "Of your four areas, this is your strongest. There is a real sense of direction here to build on."
+          },
+          Value: {
+            strong: "You know what you bring and can point to the results to prove it. That is hard to build, and it is exactly what employers and clients look for.",
+            dev: "Of your four areas, this is your strongest. You already have real strengths and results to build on."
+          },
+          Market: {
+            strong: "You understand where you fit in the market, and you have people around you in the places you want to go. That gives you a real head start.",
+            dev: "Of your four areas, this is your strongest. You already have a feel for the market and connections to build on."
+          },
+          Sustainability: {
+            strong: "You have healthy energy and boundaries. That is a strength in its own right, and it means you can make career decisions from a clear head.",
+            dev: "Of your four areas, this is your strongest. Your energy is something you can build on."
+          }
+        };
+        const topScore = scores[strongest];
+        if (topScore >= 12) {
+          document.getElementById('cmf-strength-title').innerText = strongest;
+          document.getElementById('cmf-strength-desc').innerText = topScore >= 19 ? strengths[strongest].strong : strengths[strongest].dev;
+        } else {
+          document.getElementById('cmf-strength-title').innerText = "You are being honest with yourself";
+          document.getElementById('cmf-strength-desc').innerText = "Every score here is a starting point, not a verdict. Taking the time to reflect honestly is the first real step, and it is where change begins.";
+        }
+ 
         const details = {
           Direction: {
-            title: "LOW DIRECTION — Busy but Aimless",
-            desc: "You're moving, but toward goals shaped by other people's expectations, or toward no clear target at all.",
+            title: "Direction, getting clearer on your next chapter",
+            desc: "Your path may still be taking shape, or be shaped partly by other people's expectations. That is very common, and very workable.",
+            hi: "You have a clear sense of where you are heading. The next level is testing that direction against real roles and real conversations.",
             move: "Write down three moments you felt most engaged at work and three that drained you. Look for what each set has in common, then write one sentence describing your next chapter."
           },
           Value: {
-            title: "LOW VALUE — Overlooked Impact",
-            desc: "Your impact is real but hard for others to see, and easy for you to undersell.",
+            title: "Value, making your impact visible",
+            desc: "Your impact is real, it just may not be easy for others to see yet, and it is easy to undersell.",
+            hi: "You know what you bring. The next level is making sure your CV, LinkedIn and conversations lead with it every time.",
             move: "List five key results you've created with measurable outcomes. Ask three colleagues what they come to you for, and compare their answers with your own."
           },
           Market: {
-            title: "LOW MARKET — Unheard Strengths",
-            desc: "Your strengths may be solid, but they are aimed at the wrong places or not yet visible to the right decision-makers.",
+            title: "Market, putting your strengths in front of the right people",
+            desc: "Your strengths are solid. The next step is aiming them at the right places and the right decision-makers.",
+            hi: "You are well connected to what the market needs. The next level is turning that into more conversations with the right people.",
             move: "Read ten job descriptions in the direction you want, highlight repeating keywords, and set up two informal chats with people currently doing that work."
           },
           Sustainability: {
-            title: "LOW SUSTAINABILITY — Burnout Risk / Depleted Energy",
-            desc: "The role or path may look right on paper, but its cost in exhaustion, chronic stress, or mental detachment is unsustainable.",
-            move: "Track your week and mark tasks as energizing vs. draining. Identify your single biggest structural stressor and put a strict boundary around it or delegate it immediately."
+            title: "Sustainability, protecting your energy",
+            desc: "The path may look right on paper, but it is costing you energy. Looking after that now makes every other step easier.",
+            hi: "Your energy is in good shape. The next level is protecting it as your workload or role changes.",
+            move: "Track your week and mark tasks as energizing vs. draining. Identify your single biggest structural stressor and put a clear boundary around it, or hand it over."
           }
         };
-
+ 
         const resultInfo = details[lowestPillar];
+        const isHigh = lowestScore >= 19;
+        document.getElementById('cmf-opp-label').innerText = isHigh ? 'One thing to sharpen next' : 'Your biggest opportunity right now';
         document.getElementById('cmf-weakest-title').innerText = resultInfo.title;
-        document.getElementById('cmf-weakest-desc').innerText = resultInfo.desc;
+        document.getElementById('cmf-weakest-desc').innerText = isHigh ? resultInfo.hi : resultInfo.desc;
         document.getElementById('cmf-weakest-move').innerText = resultInfo.move;
 
         if (scores.Sustainability <= 11) {
